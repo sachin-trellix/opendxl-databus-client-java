@@ -6,7 +6,6 @@ package com.opendxl.databus.util;
 
 import kafka.admin.TopicCommand;
 import kafka.zk.KafkaZkClient;
-import org.apache.kafka.common.security.JaasUtils;
 import org.apache.kafka.common.utils.SystemTime;
 import scala.runtime.AbstractFunction0;
 
@@ -77,7 +76,7 @@ public class Topic {
                 } });
 
             return KafkaZkClient.apply(connectString,
-                    JaasUtils.isZkSecurityEnabled(),
+                    false,
                     30000,
                     30000,
                     1000,
